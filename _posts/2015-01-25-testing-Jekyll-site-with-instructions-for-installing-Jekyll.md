@@ -1,3 +1,8 @@
+---
+layout:post
+title: Installing Jekyll to serve GitHub.io website
+---
+
 Installing Jekyll to serve GitHub.io website
 
 ###Trying to follow the instructions [from GitHub](https://help.github.com/articles/using-jekyll-with-pages/)
