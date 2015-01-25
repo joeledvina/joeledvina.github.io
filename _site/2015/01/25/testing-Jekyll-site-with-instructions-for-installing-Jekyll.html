@@ -1,0 +1,77 @@
+<p>Installing Jekyll to serve GitHub.io website</p>
+
+<h3 id="trying-to-follow-the-instructions-from-githubhttpshelpgithubcomarticlesusing-jekyll-with-pages">Trying to follow the instructions <a href="https://help.github.com/articles/using-jekyll-with-pages/">from GitHub</a></h3>
+<p>This is probably not at all worth all of the hassle</p>
+
+<p>Installed GitHub Windows client</p>
+
+<ol>
+  <li>
+    <p>“installed” Ruby in a folder (C:\Ruby21-x64)</p>
+
+    <ul>
+      <li>
+        <p>version 2.1.5 64-bit from <a href="http://rubyinstaller.org">rubyinstaller</a></p>
+      </li>
+      <li>
+        <p>added the directory to the Windows PATH</p>
+      </li>
+    </ul>
+  </li>
+  <li>
+    <p>installing “bundler” by passing <code>gem install bundler</code></p>
+
+    <ul>
+      <li>
+        <p>Got an ssl error, but found the workaround <a href="https://gist.github.com/luislavena/f064211759ee0f806c88">here</a>
+downloaded the <a href="https://github.com/rubygems/rubygems/releases/tag/v2.2.3">latest Rubygems release (2.2.3)</a> for my version of Ruby</p>
+      </li>
+      <li>
+        <p>in command prompt, passed <code>C:\&gt;gem install --local</code> then <code>C:\rubygems-update-1.8.30.gem</code> and then <code>C:\&gt;update_rubygems --no-ri --no-rdoc</code> to install the updated gems, then passed <code>C:\&gt;gem uninstall rubygems-update -x</code> to remove the updater</p>
+      </li>
+      <li>
+        <p>Added a file name “Gemfile” to the GitHub.io repository, and used a text editor to add the following:</p>
+      </li>
+    </ul>
+  </li>
+</ol>
+
+<p><code>ruby
+source 'https://rubygems.org'
+gem 'github-pages'
+</code></p>
+
+<ul>
+  <li>
+    <p>after all of the above, <code>gem install bundler</code> gave me an error that indicated I needed to install the Ruby devkit</p>
+  </li>
+  <li>
+    <p>downloaded the <a href="http://cdn.rubyinstaller.org/archives/devkits/DevKit-mingw64-64-4.7.2-20130224-1432-sfx.exe">devkit for my version of Ruby</a> from the [rubyinstaller downloads page[(http://rubyinstaller.org/downloads/)</p>
+  </li>
+  <li>
+    <p>extracted the devkit to C:\rubydevkit</p>
+  </li>
+  <li>
+    <p>ran the included “devkitvars.bat” that is supposed to add the devkit to the Windows PATH, then ran it as admin, but it didn’t work, so I added <code>C:\rubydev\bin</code> and <code>C:\rubydev\mingw\bin</code> to PATH</p>
+  </li>
+  <li>
+    <p>folowing the <a href="https://github.com/oneclick/rubyinstaller/wiki/Development-Kit">instructions for the devkit</a>, opened a cmd window in the rubydev directory and ran <code>ruby dk.rb init</code> and <code>ruby dk.rb install</code> to bind it to ruby installations in your path.</p>
+  </li>
+  <li>
+    <p>after all of that hassle, the install was successful</p>
+  </li>
+</ul>
+
+<ol>
+  <li>
+    <p>run Jekyll using <code>bundle exec jekyll serve</code> in the root of the repository</p>
+
+    <ul>
+      <li>To ensure the local development environment is using the same version of Jekyll and its dependencies as GitHub Pages, periodically run the command <code>gem update github-pages</code> (or <code>bundle update github-pages</code> if using Bundler)</li>
+    </ul>
+  </li>
+  <li>
+    <p>I can then <a href="http://localhost:4000/">view the website in my browser</a>.</p>
+  </li>
+</ol>
+
